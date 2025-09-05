@@ -96,6 +96,8 @@ class Operacoes_Administrador(Operacoes):
     def cadastrar_livro(livros):
         try:
             titulo = input("Título: ")
+            if any(l.titulo == titulo for l in livros):
+                raise Exception("Livro já cadastrado.")
             autor = input("Autor: ")
             disponivel = True
             emprestado_para = None
